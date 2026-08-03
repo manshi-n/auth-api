@@ -1,0 +1,329 @@
+# 🔐 Auth API - Login & Protect
+
+A secure REST API built using **Node.js**, **Express.js**, and **Supabase Authentication**. This project demonstrates user authentication with JWTs, route protection using middleware, and interactive API documentation with Swagger UI.
+
+> **FlyRank Backend AI Engineering Internship**  
+> **Week 4 Assignment – Auth: Login & Protect**
+
+---
+
+# 🚀 Features
+
+- User Registration (Sign Up)
+- User Login
+- User Logout
+- JWT Authentication using Supabase Auth
+- Protected Routes
+- Authentication Middleware
+- Public API Endpoint
+- Swagger UI Documentation
+- Environment Variables for Secure Configuration
+
+---
+
+# 🛠 Tech Stack
+
+- Node.js
+- Express.js
+- Supabase Authentication
+- JWT (JSON Web Token)
+- Swagger UI Express
+- dotenv
+- cors
+
+---
+
+# 📂 Project Structure
+
+```
+auth-api/
+│
+├── middleware/
+│   └── auth.js
+│
+├── routes/
+│   ├── auth.js
+│   ├── protected.js
+│   └── public.js
+│
+├── .env
+├── .gitignore
+├── package.json
+├── package-lock.json
+├── server.js
+├── supabase.js
+├── swagger.json
+└── README.md
+```
+
+---
+
+# ⚙️ Environment Variables
+
+Create a `.env` file in the root directory.
+
+```env
+SUPABASE_URL=YOUR_SUPABASE_PROJECT_URL
+SUPABASE_KEY=YOUR_SUPABASE_PUBLISHABLE_KEY
+PORT=3000
+```
+
+> **Note:** Never commit your `.env` file to GitHub.
+
+---
+
+# 📦 Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/manshi-n/auth-api.git
+```
+
+Go to the project directory:
+
+```bash
+cd auth-api
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+---
+
+# ▶️ Running the Project
+
+Development Mode
+
+```bash
+npm run dev
+```
+
+Production Mode
+
+```bash
+node server.js
+```
+
+The server will start at:
+
+```
+http://localhost:3000
+```
+
+---
+
+# 📚 API Endpoints
+
+## Authentication
+
+### Sign Up
+
+**POST**
+
+```
+/auth/signup
+```
+
+Request Body
+
+```json
+{
+  "email": "user@example.com",
+  "password": "Password123!"
+}
+```
+
+Returns **201 Created**
+
+---
+
+### Login
+
+**POST**
+
+```
+/auth/login
+```
+
+Request Body
+
+```json
+{
+  "email": "user@example.com",
+  "password": "Password123!"
+}
+```
+
+Returns
+
+```json
+{
+  "access_token": "...",
+  "refresh_token": "..."
+}
+```
+
+Status **200 OK**
+
+---
+
+### Logout
+
+**POST**
+
+```
+/auth/logout
+```
+
+Requires Authentication
+
+Status **204 No Content**
+
+---
+
+# Public Route
+
+## Get Public Information
+
+**GET**
+
+```
+/public/info
+```
+
+Response
+
+```json
+{
+  "message": "Welcome stranger! This info is public."
+}
+```
+
+---
+
+# Protected Routes
+
+## User Profile
+
+**GET**
+
+```
+/protected/profile
+```
+
+Requires Bearer Token
+
+Example Header
+
+```
+Authorization: Bearer YOUR_ACCESS_TOKEN
+```
+
+Response
+
+```json
+{
+  "id": "...",
+  "email": "...",
+  "created_at": "..."
+}
+```
+
+---
+
+## Dashboard
+
+**GET**
+
+```
+/protected/dashboard
+```
+
+Requires Bearer Token
+
+Response
+
+```json
+{
+  "message": "Welcome to your dashboard!",
+  "user": "user@example.com"
+}
+```
+
+---
+
+# 🔒 Authentication
+
+Protected endpoints require a valid JWT Access Token.
+
+Header format:
+
+```
+Authorization: Bearer YOUR_ACCESS_TOKEN
+```
+
+---
+
+# 📖 Swagger Documentation
+
+Swagger UI is available at:
+
+```
+http://localhost:3000/docs
+```
+
+Use the **Authorize** button to enter your JWT Access Token and test protected endpoints directly from the browser.
+
+---
+
+# 🧪 Testing
+
+The API was tested using:
+
+- Thunder Client
+- Supabase Authentication
+- JWT Bearer Tokens
+- Swagger UI
+
+---
+
+# ✅ Assignment Stages Completed
+
+- ✅ Stage 0 – Setup Server & Supabase
+- ✅ Stage 1 – User Signup & Login
+- ✅ Stage 2 – Public & Protected Routes
+- ✅ Stage 3 – JWT Token Verification
+- ✅ Stage 4 – Authentication Middleware & Logout
+- ✅ Stage 5 – Swagger UI Documentation
+- ✅ Stage 6 – GitHub Repository & README
+
+---
+
+# 📸 Swagger Screenshot
+
+Add a screenshot of your Swagger UI here after running the application.
+
+Example:
+
+```
+docs/swagger-ui.png
+```
+
+---
+
+# 📄 License
+
+This project was created for educational purposes as part of the **FlyRank Backend AI Engineering Internship**.
+
+---
+
+# 👩‍💻 Author
+
+**Manshi Negi**
+
+- GitHub: https://github.com/manshi-n
+- Email: nmansi178@gmail.com
